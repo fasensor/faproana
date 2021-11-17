@@ -1,0 +1,42 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.3"}
+        org.clojure/data.xml {:mvn/version "0.0.8"}
+        org.slf4j/log4j-over-slf4j {:mvn/version "1.7.32"}
+        org.slf4j/jcl-over-slf4j {:mvn/version "1.7.32"}
+        org.slf4j/jul-to-slf4j {:mvn/version "1.7.32"}
+        com.fzakaria/slf4j-timbre {:mvn/version "0.3.21"}
+        com.taoensso/timbre {:mvn/version "5.1.2"}
+        me.raynes/conch {:mvn/version "0.8.0"}
+        org.flatland/ordered {:mvn/version "1.5.9"}
+        meander/epsilon {:mvn/version "0.0.650"}
+        cc.qbits/spandex {:mvn/version "0.7.9"}
+        org.slf4j/slf4j-simple {:mvn/version "1.7.32"}
+        org.slf4j/slf4j-api {:mvn/version "1.7.32"}
+        clojure.java-time/clojure.java-time {:mvn/version "0.3.3"}
+        buddy/buddy-core {:mvn/version "1.10.1"}
+        ntestoc3/netlib {:mvn/version "0.3.6"}
+        diehard/diehard {:mvn/version "0.10.4"}
+        mount/mount {:mvn/version "0.1.16"}
+        better-cond/better-cond {:mvn/version "2.1.0"}
+        datalevin/datalevin {:mvn/version "0.5.25"}
+        com.cognitect/transit-clj {:mvn/version "1.0.324"}
+        com.climate/claypoole {:mvn/version "1.1.4"}  ;; thread pool
+
+        org.clojure/tools.cli {:mvn/version "1.0.206"}
+
+        yogthos/config {:mvn/version "1.1.8"} ;; config
+        }
+ :aliases
+ {:run-m {:main-opts ["-m" "ntestoc.proana"]}
+  :run-x {:ns-default ntestoc.proana
+          :exec-fn greet
+          :exec-args {:name "Clojure"}}
+  :test {:extra-paths ["test"]
+         :extra-deps {org.clojure/test.check {:mvn/version "1.1.0"}
+                      io.github.cognitect-labs/test-runner
+                      {:git/url "https://github.com/cognitect-labs/test-runner"
+                       :sha "62ef1de18e076903374306060ac0e8a752e57c86"}}
+         :exec-fn cognitect.test-runner.api/test}
+  :build {:deps {io.github.seancorfield/build-clj
+                 {:git/tag "v0.5.2" :git/sha "8f75b81"}}
+          :ns-default build}}}
